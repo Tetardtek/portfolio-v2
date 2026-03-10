@@ -1,65 +1,46 @@
-import Image from "next/image";
+'use client'
+
+import { useState } from 'react'
+import { Navbar } from '@/components/sections/Navbar'
+import { Hero } from '@/components/sections/Hero'
+import { Projects } from '@/components/sections/Projects'
+import { Stack } from '@/components/sections/Stack'
+import { Infrastructure } from '@/components/sections/Infrastructure'
+import { Contact } from '@/components/sections/Contact'
+import { Footer } from '@/components/sections/Footer'
+import type { Lang } from '@/types'
+
+import projectsData from '@/data/projects.json'
+import stackData from '@/data/stack.json'
+import infraData from '@/data/infrastructure.json'
+import fr from '@/i18n/fr.json'
+import en from '@/i18n/en.json'
+import type { Technology } from '@/types'
+
+const translations = { fr, en }
+
+const techCounts = (projectsData.projects as import('@/types').Project[]).reduce<Record<string, number>>(
+  (acc, p) => { p.techno.forEach((name) => { acc[name] = (acc[name] ?? 0) + 1 }); return acc },
+  {}
+)
 
 export default function Home() {
+  const [lang, setLang] = useState<Lang>('fr')
+  const t = translations[lang]
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <Navbar lang={lang} onLangChange={setLang} nav={t.nav} />
+
+      <main>
+        <Hero t={t.hero} />
+        <Projects projects={projectsData.projects as import('@/types').Project[]} lang={lang} stack={stackData.technologies as Technology[]} t={t.projects} />
+        <Stack stack={stackData.technologies as Technology[]} techCounts={techCounts} t={t.stack} />
+        <Infrastructure infra={infraData as import('@/types').Infrastructure} stack={stackData.technologies as Technology[]} lang={lang} t={t.infra} />
+        <Contact t={t.contact} />
       </main>
-    </div>
-  );
+
+      <Footer lang={lang} t={t.footer} />
+    </>
+  )
 }

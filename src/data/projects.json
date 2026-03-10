@@ -1,0 +1,171 @@
+{
+  "projects": [
+    {
+      "id": "toutdoux",
+      "title": "Toutdoux",
+      "description": {
+        "fr": "Todo list interactive avec gestion des tâches en JavaScript vanilla.",
+        "en": "Interactive todo list with task management in vanilla JavaScript."
+      },
+      "techno": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Git",
+        "VSCode",
+        "Linux",
+        "Windows"
+      ],
+      "img": "/assets/img/toutdoux.png",
+      "link": "https://jurascript.tetardtek.com/JavaScript/toutdoux.html",
+      "github": "https://github.com/Tetardtek/P1-ToutDoux",
+      "featured": false,
+      "spotlight": false
+    },
+    {
+      "id": "jurascript",
+      "title": "JuraScript",
+      "description": {
+        "fr": "Site de présentation hébergeant plusieurs mini-projets JavaScript interactifs.",
+        "en": "Showcase site hosting several interactive JavaScript mini-projects."
+      },
+      "techno": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "VSCode",
+        "Git",
+        "Windows",
+        "Linux"
+      ],
+      "img": "/assets/img/jurascript.png",
+      "link": "https://jurascript.tetardtek.com/",
+      "github": "https://github.com/Tetardtek/JuraScript",
+      "featured": false,
+      "spotlight": false
+    },
+    {
+      "id": "stupeflix",
+      "title": "Stupeflix",
+      "description": {
+        "fr": "Quiz et Battle game sur l'univers Harry Potter. Projet React avec gestion d'état et animations.",
+        "en": "Quiz and Battle game set in the Harry Potter universe. React project with state management and animations."
+      },
+      "techno": [
+        "HTML",
+        "SASS",
+        "React",
+        "JavaScript",
+        "VSCode",
+        "Git",
+        "Windows",
+        "Linux",
+        "Postman",
+        "Figma"
+      ],
+      "img": "/assets/img/hogwart.png",
+      "link": "https://stupeflix.tetardtek.com/",
+      "github": "https://github.com/Tetardtek/P2-Stupeflix",
+      "featured": true,
+      "spotlight": false
+    },
+    {
+      "id": "origins-digital",
+      "title": "Origin's Digital",
+      "description": {
+        "fr": "Plateforme freemium d'upload et de partage de vidéos. Stack fullstack complète avec authentification.",
+        "en": "Freemium platform for uploading and sharing videos. Full-stack application with authentication."
+      },
+      "techno": [
+        "HTML",
+        "SASS",
+        "React",
+        "Node.js",
+        "Express",
+        "MySQL",
+        "VSCode",
+        "Git",
+        "Windows",
+        "Linux",
+        "Figma"
+      ],
+      "img": "/assets/img/origins.png",
+      "link": "https://originsdigital.tetardtek.com/",
+      "github": "https://github.com/Tetardtek/P3-Originsdigital",
+      "featured": true,
+      "spotlight": true
+    },
+    {
+      "id": "xmass-click",
+      "title": "Xmass Click",
+      "description": {
+        "fr": "Clicker game de Noël développé lors d'un hackathon — 1ère place. Interface festive et mécanique addictive.",
+        "en": "Christmas clicker game built during a hackathon — 1st place. Festive UI and addictive mechanics."
+      },
+      "techno": [
+        "SASS",
+        "React",
+        "JavaScript",
+        "CSS",
+        "Git",
+        "VSCode",
+        "Windows",
+        "Linux"
+      ],
+      "img": "/assets/img/xmass.png",
+      "link": "https://xmass.tetardtek.com/",
+      "github": "https://github.com/Tetardtek/H1-XmassClick",
+      "featured": true,
+      "spotlight": false
+    },
+    {
+      "id": "superoauth",
+      "title": "SuperOAuth",
+      "description": {
+        "fr": "Solution complète d'authentification combinant email/mot de passe et OAuth (Discord, Twitch, Google, GitHub). JWT, refresh tokens, bcrypt, CI/CD avec GitHub Actions.",
+        "en": "Full authentication solution combining email/password and OAuth (Discord, Twitch, Google, GitHub). JWT, refresh tokens, bcrypt, CI/CD with GitHub Actions."
+      },
+      "techno": [
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "MySQL",
+        "JWT",
+        "Docker",
+        "Git",
+        "VSCode",
+        "Nginx",
+        "Linux",
+        "Windows"
+      ],
+      "img": "/assets/img/superoauth.png",
+      "link": "https://superoauth.tetardtek.com",
+      "github": "https://github.com/Tetardtek/Super-OAuth",
+      "featured": true,
+      "spotlight": false
+    },
+    {
+      "id": "loreal",
+      "title": "L'Oréal Professionnel",
+      "description": {
+        "fr": "Plateforme B2B avec chatbot IA intégré, développée lors d'un hackathon — finaliste.",
+        "en": "B2B platform with integrated AI chatbot, built during a hackathon — finalist."
+      },
+      "techno": [
+        "HTML",
+        "SASS",
+        "React",
+        "Node.js",
+        "Express",
+        "MySQL",
+        "Linux",
+        "Windows"
+      ],
+      "img": "/assets/img/loreal.png",
+      "link": "https://b2b-loreal.remote-fr-2.wilders.dev/",
+      "github": "https://github.com/Tetardtek/H2-LorealProfesionnel",
+      "featured": true,
+      "spotlight": false
+    }
+  ]
+}

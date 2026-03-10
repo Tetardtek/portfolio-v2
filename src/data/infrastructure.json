@@ -1,0 +1,79 @@
+{
+  "description": {
+    "fr": "VPS auto-hébergé sous Linux avec reverse proxy nginx, SSL Let's Encrypt et une dizaine de services en production.",
+    "en": "Self-hosted VPS running Linux with nginx reverse proxy, SSL Let's Encrypt, and a dozen services in production."
+  },
+  "specs": [
+    "Linux",
+    "Nginx",
+    "Docker",
+    "SSL Let's Encrypt",
+    "Node.js",
+    "MySQL"
+  ],
+  "services": [
+    {
+      "name": "Uptime Kuma",
+      "description": {
+        "fr": "Monitoring en temps réel de tous mes services avec alertes et historique de disponibilité.",
+        "en": "Real-time monitoring of all services with alerts and uptime history."
+      },
+      "url": "https://up.tetardtek.com",
+      "img": "/assets/img/uptime-kuma.png"
+    },
+    {
+      "name": "Affine",
+      "description": {
+        "fr": "Workspace collaboratif tout-en-un (docs, kanban, whiteboard) — alternative self-hosted à Notion.",
+        "en": "All-in-one collaborative workspace (docs, kanban, whiteboard) — self-hosted Notion alternative."
+      },
+      "url": "https://affine.tetardtek.com",
+      "img": "/assets/img/affine.png"
+    },
+    {
+      "name": "Habitica",
+      "description": {
+        "fr": "Gestionnaire d'habitudes et de tâches gamifié — instance privée pour suivre ma progression quotidienne.",
+        "en": "Gamified habit and task manager — private instance to track daily progress."
+      },
+      "url": "https://habitica.tetardtek.com",
+      "img": "/assets/img/habitica.png"
+    },
+    {
+      "name": "ConvertX",
+      "description": {
+        "fr": "Convertisseur de fichiers self-hosted — images, vidéos, documents, sans envoyer de données à un tiers.",
+        "en": "Self-hosted file converter — images, videos, documents, without sending data to a third party."
+      },
+      "url": "https://convert.tetardtek.com",
+      "img": ""
+    },
+    {
+      "name": "Stirling PDF",
+      "description": {
+        "fr": "Suite d'outils PDF self-hosted — fusion, découpe, compression, conversion, tout en local.",
+        "en": "Self-hosted PDF toolkit — merge, split, compress, convert, all locally."
+      },
+      "url": "https://pdf.tetardtek.com",
+      "img": ""
+    },
+    {
+      "name": "Excalidraw",
+      "description": {
+        "fr": "Outil de dessin et de schématisation collaboratif self-hosted — idéal pour les diagrammes d'architecture.",
+        "en": "Self-hosted collaborative drawing and diagramming tool — ideal for architecture diagrams."
+      },
+      "url": "https://draw.tetardtek.com",
+      "img": ""
+    },
+    {
+      "name": "n8n",
+      "description": {
+        "fr": "Automatisation de workflows — équivalent Zapier self-hosted. Connecte mes outils et déclenche des actions automatiques.",
+        "en": "Workflow automation — self-hosted Zapier alternative. Connects tools and triggers automated actions."
+      },
+      "url": "https://n8n.tetardtek.com",
+      "img": "https://cdn.worldvectorlogo.com/logos/n8n-1.svg"
+    }
+  ]
+}

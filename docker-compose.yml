@@ -1,0 +1,16 @@
+services:
+  portfolio:
+    build: .
+    container_name: portfolio-v2
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    volumes:
+      # Persistance des données JSON modifiées via l'admin
+      - ./src/data:/app/src/data
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

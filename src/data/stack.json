@@ -1,0 +1,114 @@
+{
+  "technologies": [
+    {
+      "name": "TypeScript",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      "category": "languages"
+    },
+    {
+      "name": "JavaScript",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      "category": "languages"
+    },
+    {
+      "name": "HTML",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+      "category": "languages"
+    },
+    {
+      "name": "CSS",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+      "category": "languages"
+    },
+    {
+      "name": "React",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      "category": "frontend"
+    },
+    {
+      "name": "Next.js",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+      "category": "frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+      "category": "frontend"
+    },
+    {
+      "name": "SASS",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
+      "category": "frontend"
+    },
+    {
+      "name": "Node.js",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      "category": "backend"
+    },
+    {
+      "name": "Express",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+      "category": "backend"
+    },
+    {
+      "name": "MySQL",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+      "category": "DB"
+    },
+    {
+      "name": "Docker",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+      "category": "devops"
+    },
+    {
+      "name": "JWT",
+      "img": "https://cdn.worldvectorlogo.com/logos/jwt-3.svg",
+      "category": "devops"
+    },
+    {
+      "name": "Nginx",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
+      "category": "devops"
+    },
+    {
+      "name": "SSL Let's Encrypt",
+      "img": "https://cdn.worldvectorlogo.com/logos/letsencrypt-1.svg",
+      "category": "devops"
+    },
+    {
+      "name": "Bcrypt",
+      "img": "",
+      "category": "devops"
+    },
+    {
+      "name": "Git",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+      "category": "tools"
+    },
+    {
+      "name": "VSCode",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+      "category": "tools"
+    },
+    {
+      "name": "Postman",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+      "category": "tools"
+    },
+    {
+      "name": "Figma",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+      "category": "tools"
+    },
+    {
+      "name": "Linux",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+      "category": "os"
+    },
+    {
+      "name": "Windows",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
+      "category": "os"
+    }
+  ]
+}

@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
+/* ── Palette violet-chaton ──────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark (default) */
+  --bg-base:    #261537;
+  --bg-surface: #341c4a;
+  --bg-high:    #3d2454;
+  --bg-card:    #493161;
+
+  --pink:       #ff79c6;
+  --purple:     #e79cfe;
+  --cyan:       #8be9fd;
+
+  --text:       #f8f8f2;
+  --text-muted: #9399b2;
+
+  --border:     #5c496c;
+  --success:    #a6e3a1;
+  --warning:    #f9e2af;
+  --danger:     #f38ba8;
+
+  --radius:     14px;
+  --radius-sm:  8px;
 }
 
+[data-theme="light"] {
+  --bg-base:    #f5f0fa;
+  --bg-surface: #ede7f6;
+  --bg-high:    #d9cce8;
+  --bg-card:    #cfc3e0;
+
+  --text:       #1a0e2e;
+  --text-muted: #6c5a80;
+  --border:     #b8a8cc;
+}
+
+/* ── Theme tokens → Tailwind CSS vars ───────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-base:    var(--bg-base);
+  --color-surface: var(--bg-surface);
+  --color-high:    var(--bg-high);
+  --color-card:    var(--bg-card);
+  --color-pink:    var(--pink);
+  --color-purple:  var(--purple);
+  --color-cyan:    var(--cyan);
+  --color-text:    var(--text);
+  --color-muted:   var(--text-muted);
+  --color-border:  var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger:  var(--danger);
+
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ───────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* ── Glassmorphism helper ───────────────────────────── */
+.glass {
+  background: rgba(52, 28, 74, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+[data-theme="light"] .glass {
+  background: rgba(237, 231, 246, 0.7);
+}
+
+/* ── Glow effects ───────────────────────────────────── */
+.glow-pink {
+  box-shadow: 0 0 20px rgba(255, 121, 198, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(231, 156, 254, 0.3);
+}
+
+/* ── Selection ──────────────────────────────────────── */
+::selection {
+  background: var(--pink);
+  color: var(--bg-base);
 }

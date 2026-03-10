@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "role": "Self-taught full-stack web developer",
+    "tagline": "Passionate about code, DevOps and Linux environments.\nLooking for opportunities.",
+    "cta_projects": "See my projects",
+    "cta_contact": "Contact me"
+  },
+  "nav": {
+    "projects": "Projects",
+    "stack": "Stack",
+    "infra": "Infrastructure",
+    "contact": "Contact"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "What I've built",
+    "demo": "Demo",
+    "code": "Code",
+    "filter_all": "All"
+  },
+  "stack": {
+    "title": "Stack",
+    "subtitle": "Technologies & tools",
+    "categories": {
+      "language": "Languages",
+      "framework": "Frameworks & libs",
+      "devops": "DevOps & security",
+      "tool": "Tools",
+      "os": "Environment"
+    }
+  },
+  "infra": {
+    "title": "Infrastructure",
+    "subtitle": "My VPS in production"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk?",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent!",
+    "error": "Something went wrong."
+  },
+  "footer": {
+    "made_with": "Built with Next.js & Framer Motion",
+    "rights": "All rights reserved"
+  }
+}
