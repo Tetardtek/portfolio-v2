@@ -58,14 +58,14 @@ export default function AdminDashboard() {
     <div className="min-h-screen px-6 py-8 max-w-6xl mx-auto" style={{ background: 'var(--bg-base)' }}>
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h1 className="font-mono text-[var(--pink)] text-xl font-bold">~/admin/dashboard</h1>
+        <h1 className="font-mono text-pink text-xl font-bold">~/admin/dashboard</h1>
         <div className="flex items-center gap-3">
           {saved && (
-            <motion.span className="font-mono text-xs text-[var(--success)]" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <motion.span className="font-mono text-xs text-success" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               ✓ Sauvegardé
             </motion.span>
           )}
-          <button onClick={logout} className="px-3 py-1.5 font-mono text-xs border border-[var(--border)] text-[var(--text-muted)] rounded-[var(--radius-sm)] hover:border-[var(--danger)] hover:text-[var(--danger)] transition-colors">
+          <button onClick={logout} className="px-3 py-1.5 font-mono text-xs border border-border text-muted rounded-btn hover:border-danger hover:text-danger transition-colors">
             Déconnexion
           </button>
         </div>
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
       <div className="flex gap-2 mb-6">
         {(['projects', 'stack', 'infra'] as Tab[]).map((t) => (
           <button key={t} onClick={() => { setTab(t); setSelectedIdx(null); setSelectedServiceIdx(null) }}
-            className={`px-4 py-1.5 rounded-[var(--radius-sm)] font-mono text-sm transition-colors ${tab === t ? 'bg-[var(--bg-surface)] border border-[var(--pink)] text-[var(--pink)]' : 'border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--text)]'}`}
+            className={`px-4 py-1.5 rounded-btn font-mono text-sm transition-colors ${tab === t ? 'bg-surface border border-pink text-pink' : 'border border-border text-muted hover:text-text'}`}
           >
             {t}
           </button>

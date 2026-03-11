@@ -41,7 +41,7 @@ export function Contact({ t }: Props) {
   }
 
   const inputClass =
-    'w-full bg-[var(--bg-surface)] border border-[var(--border)] rounded-[var(--radius-sm)] px-4 py-3 text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--pink)] transition-colors font-sans text-sm'
+    'w-full bg-surface border border-border rounded-btn px-4 py-3 text-text placeholder:text-muted focus:outline-none focus:border-pink transition-colors font-sans text-sm'
 
   return (
     <section id="contact" className="py-24 px-6 max-w-xl mx-auto">
@@ -51,8 +51,8 @@ export function Contact({ t }: Props) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <span className="font-mono text-xs text-[var(--cyan)] tracking-widest uppercase">{t.subtitle}</span>
-        <h2 className="mt-2 text-4xl font-bold text-[var(--text)]">{t.title}</h2>
+        <span className="font-mono text-xs text-cyan tracking-widest uppercase">{t.subtitle}</span>
+        <h2 className="mt-2 text-4xl font-bold text-text">{t.title}</h2>
       </motion.div>
 
       <motion.form
@@ -63,7 +63,7 @@ export function Contact({ t }: Props) {
         viewport={{ once: true }}
       >
         <div>
-          <label className="block font-mono text-xs text-[var(--purple)] mb-2 uppercase tracking-wide">
+          <label className="block font-mono text-xs text-purple mb-2 uppercase tracking-wide">
             {t.name}
           </label>
           <input
@@ -77,7 +77,7 @@ export function Contact({ t }: Props) {
         </div>
 
         <div>
-          <label className="block font-mono text-xs text-[var(--purple)] mb-2 uppercase tracking-wide">
+          <label className="block font-mono text-xs text-purple mb-2 uppercase tracking-wide">
             {t.email}
           </label>
           <input
@@ -91,7 +91,7 @@ export function Contact({ t }: Props) {
         </div>
 
         <div>
-          <label className="block font-mono text-xs text-[var(--purple)] mb-2 uppercase tracking-wide">
+          <label className="block font-mono text-xs text-purple mb-2 uppercase tracking-wide">
             {t.message}
           </label>
           <textarea
@@ -107,8 +107,7 @@ export function Contact({ t }: Props) {
         <motion.button
           type="submit"
           disabled={status === 'sending' || status === 'success' || status === 'ratelimited'}
-          className="w-full py-3 rounded-[var(--radius-sm)] font-semibold text-[var(--bg-base)] disabled:opacity-60 transition-opacity"
-          style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))' }}
+          className="w-full py-3 rounded-btn font-semibold text-base disabled:opacity-60 transition-opacity bg-gradient-vc"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -117,7 +116,7 @@ export function Contact({ t }: Props) {
 
         {status === 'success' && (
           <motion.p
-            className="text-center text-[var(--success)] font-mono text-sm"
+            className="text-center text-success font-mono text-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
@@ -126,7 +125,7 @@ export function Contact({ t }: Props) {
         )}
         {status === 'error' && (
           <motion.p
-            className="text-center text-[var(--danger)] font-mono text-sm"
+            className="text-center text-danger font-mono text-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
@@ -135,7 +134,7 @@ export function Contact({ t }: Props) {
         )}
         {status === 'ratelimited' && (
           <motion.p
-            className="text-center text-[var(--warning,#f59e0b)] font-mono text-sm"
+            className="text-center text-warning font-mono text-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >

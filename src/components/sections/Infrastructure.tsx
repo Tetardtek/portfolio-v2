@@ -24,8 +24,8 @@ export function Infrastructure({ infra, stack, lang, t }: Props) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <span className="font-mono text-xs text-[var(--cyan)] tracking-widest uppercase">{t.subtitle}</span>
-        <h2 className="mt-2 text-4xl font-bold text-[var(--text)]">{t.title}</h2>
+        <span className="font-mono text-xs text-cyan tracking-widest uppercase">{t.subtitle}</span>
+        <h2 className="mt-2 text-4xl font-bold text-text">{t.title}</h2>
       </motion.div>
 
       {/* VPS description card */}
@@ -36,13 +36,13 @@ export function Infrastructure({ infra, stack, lang, t }: Props) {
         viewport={{ once: true }}
       >
         <div className="flex items-center gap-3 mb-3">
-          <span className="font-mono text-[var(--pink)] text-lg">⬡</span>
-          <h3 className="font-mono text-[var(--pink)] font-semibold">VPS Linux</h3>
-          <span className="ml-auto px-2 py-0.5 rounded-full text-xs font-mono bg-[var(--bg-high)] border border-[var(--success)] text-[var(--success)]">
+          <span className="font-mono text-pink text-lg">⬡</span>
+          <h3 className="font-mono text-pink font-semibold">VPS Linux</h3>
+          <span className="ml-auto px-2 py-0.5 rounded-full text-xs font-mono bg-high border border-success text-success">
             ● production
           </span>
         </div>
-        <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-4">{infra.description[lang]}</p>
+        <p className="text-muted text-sm leading-relaxed mb-4">{infra.description[lang]}</p>
 
         {/* Specs — badges liés au stack */}
         <div className="flex flex-wrap gap-2">
@@ -68,17 +68,17 @@ export function Infrastructure({ infra, stack, lang, t }: Props) {
               <div className="relative w-8 h-8 shrink-0 mt-0.5">
                 {service.img
                   ? <Image src={service.img} alt={service.name} fill className="object-contain" />
-                  : <span className="w-8 h-8 flex items-center justify-center font-mono text-[var(--border)] text-xs">?</span>
+                  : <span className="w-8 h-8 flex items-center justify-center font-mono text-border text-xs">?</span>
                 }
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <h4 className="font-mono text-[var(--purple)] font-semibold text-sm">{service.name}</h4>
+                  <h4 className="font-mono text-purple font-semibold text-sm">{service.name}</h4>
                   {isLink && (
-                    <span className="font-mono text-xs text-[var(--border)] group-hover:text-[var(--purple)] transition-colors">↗</span>
+                    <span className="font-mono text-xs text-border group-hover:text-purple transition-colors">↗</span>
                   )}
                 </div>
-                <p className="text-[var(--text-muted)] text-xs leading-relaxed">{service.description[lang]}</p>
+                <p className="text-muted text-xs leading-relaxed">{service.description[lang]}</p>
               </div>
             </motion.div>
           )

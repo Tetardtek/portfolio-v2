@@ -12,7 +12,7 @@ export function LangToggle({ lang, onToggle }: Props) {
   return (
     <motion.button
       onClick={() => onToggle(lang === 'fr' ? 'en' : 'fr')}
-      className="px-3 py-1.5 rounded-[var(--radius-sm)] border border-[var(--border)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--cyan)] hover:border-[var(--cyan)] font-mono text-sm transition-colors"
+      className="px-3 py-1.5 rounded-btn border border-border bg-surface text-muted hover:text-cyan hover:border-cyan font-mono text-sm transition-colors"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle language"

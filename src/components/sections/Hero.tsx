@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import React from 'react'
 
 interface Props {
   t: {
@@ -52,7 +51,7 @@ export function Hero({ t }: Props) {
       >
         {/* Pretitle */}
         <motion.span
-          className="font-mono text-sm text-[var(--cyan)] tracking-widest uppercase"
+          className="font-mono text-sm text-cyan tracking-widest uppercase"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -67,15 +66,14 @@ export function Hero({ t }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <span style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <span className="text-gradient">
             Tetardtek
           </span>
         </motion.h1>
 
         {/* Role */}
         <motion.p
-          className="font-mono text-base md:text-xl font-bold"
-          style={{ background: 'linear-gradient(135deg, var(--cyan), var(--purple))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+          className="font-mono text-base md:text-xl font-bold text-gradient-cyan"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -85,8 +83,7 @@ export function Hero({ t }: Props) {
 
         {/* Tagline */}
         <motion.p
-          className="text-base md:text-lg leading-relaxed whitespace-pre-line max-w-md font-medium"
-          style={{ background: 'linear-gradient(135deg, #ff79c6, #e79cfe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+          className="text-base md:text-lg leading-relaxed whitespace-pre-line max-w-md font-medium text-gradient"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.65 }}
@@ -103,14 +100,13 @@ export function Hero({ t }: Props) {
         >
           <a
             href="#projects"
-            className="px-6 py-3 rounded-[var(--radius)] font-semibold text-[var(--bg-base)] transition-opacity hover:opacity-90"
-            style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))' }}
+            className="px-6 py-3 rounded-card font-semibold text-base transition-opacity hover:opacity-90 bg-gradient-vc"
           >
             {t.cta_projects}
           </a>
           <a
             href="#contact"
-            className="px-6 py-3 rounded-[var(--radius)] font-semibold border border-[var(--border)] text-[var(--text)] hover:border-[var(--pink)] hover:text-[var(--pink)] transition-colors"
+            className="px-6 py-3 rounded-card font-semibold border border-border text-text hover:border-pink hover:text-pink transition-colors"
           >
             {t.cta_contact}
           </a>
@@ -129,8 +125,7 @@ export function Hero({ t }: Props) {
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass px-4 py-1.5 font-mono text-sm transition-colors"
-              style={{ color: 'var(--text-muted)' } as React.CSSProperties}
+              className="glass px-4 py-1.5 font-mono text-sm transition-colors text-muted"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -142,7 +137,7 @@ export function Hero({ t }: Props) {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--text-muted)]"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
       >

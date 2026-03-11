@@ -83,7 +83,7 @@ export function Navbar({ lang, onLangChange, nav }: Props) {
           <a
             href="#hero"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-0.5 font-mono font-bold text-[var(--pink)] hover:opacity-80 transition-opacity"
+            className="flex items-center gap-0.5 font-mono font-bold text-pink hover:opacity-80 transition-opacity"
           >
             ~/tetardtek
             <motion.span
@@ -109,8 +109,7 @@ export function Navbar({ lang, onLangChange, nav }: Props) {
                     {isActive && (
                       <motion.span
                         layoutId="nav-underline"
-                        className="absolute bottom-0 left-3 right-3 h-px"
-                        style={{ background: 'linear-gradient(90deg, var(--pink), var(--purple))' }}
+                        className="absolute bottom-0 left-3 right-3 h-px bg-gradient-to-r from-pink to-purple"
                         transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                       />
                     )}
@@ -132,17 +131,17 @@ export function Navbar({ lang, onLangChange, nav }: Props) {
               className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 ml-1"
             >
               <motion.span
-                className="block h-px w-5 bg-[var(--pink)] origin-center"
+                className="block h-px w-5 bg-pink origin-center"
                 animate={menuOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.25 }}
               />
               <motion.span
-                className="block h-px w-5 bg-[var(--pink)]"
+                className="block h-px w-5 bg-pink"
                 animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.2 }}
               />
               <motion.span
-                className="block h-px w-5 bg-[var(--pink)] origin-center"
+                className="block h-px w-5 bg-pink origin-center"
                 animate={menuOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.25 }}
               />
@@ -187,7 +186,7 @@ export function Navbar({ lang, onLangChange, nav }: Props) {
                       <a
                         href={l.href}
                         onClick={() => setMenuOpen(false)}
-                        className="flex items-center justify-between px-3 py-3 rounded-[var(--radius-sm)] font-mono text-base transition-colors"
+                        className="flex items-center justify-between px-3 py-3 rounded-btn font-mono text-base transition-colors"
                         style={{ color: isActive ? 'var(--pink)' : 'var(--text-muted)' }}
                       >
                         <span>{l.label}</span>
