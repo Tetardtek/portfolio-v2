@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken'
 import { cookies } from 'next/headers'
+import { NextResponse } from 'next/server'
 
 const JWT_SECRET = process.env.JWT_SECRET!
 const COOKIE_NAME = 'admin_token'
@@ -30,4 +31,10 @@ export function buildAuthCookie(token: string): string {
 
 export function buildLogoutCookie(): string {
   return `${COOKIE_NAME}=; HttpOnly; Path=/; Max-Age=0; SameSite=Strict`
+}
+
+export async function guard(): Promise<NextResponse | null> {
+  const session = await getAdminSession()
+  if (!session) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 })
+  return null
 }

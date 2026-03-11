@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import type { Infrastructure as InfraType, Technology, Lang } from '@/types'
+import { TechBadge } from '@/components/ui/TechBadge'
 
 interface Props {
   infra: InfraType
@@ -45,21 +46,9 @@ export function Infrastructure({ infra, stack, lang, t }: Props) {
 
         {/* Specs — badges liés au stack */}
         <div className="flex flex-wrap gap-2">
-          {infra.specs.map((specName) => {
-            const tech = stack.find((s) => s.name === specName)
-            return (
-              <span
-                key={specName}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-[var(--bg-high)] border border-[var(--border)] text-[var(--cyan)]"
-              >
-                {tech?.img && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={tech.img} alt="" className="w-3.5 h-3.5 object-contain" />
-                )}
-                {specName}
-              </span>
-            )
-          })}
+          {infra.specs.map((specName) => (
+            <TechBadge key={specName} name={specName} stack={stack} />
+          ))}
         </div>
       </motion.div>
 
