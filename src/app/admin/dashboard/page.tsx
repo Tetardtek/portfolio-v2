@@ -422,7 +422,7 @@ export default function AdminDashboard() {
               >
                 <div className="flex items-center justify-between">
                   <h3 className="font-mono text-[var(--purple)] font-semibold">{selected.title}</h3>
-                  <button onClick={() => removeProject(selectedIdx)} className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--danger)] transition-colors">
+                  <button onClick={() => { if (window.confirm(`Supprimer "${selected.title}" ?`)) removeProject(selectedIdx) }} className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--danger)] transition-colors">
                     ✕ Supprimer
                   </button>
                 </div>
@@ -609,7 +609,7 @@ export default function AdminDashboard() {
               >
                 <div className="flex items-center justify-between">
                   <h3 className="font-mono text-[var(--cyan)] font-semibold">{stack[selectedTechIdx].name || 'Nouvelle techno'}</h3>
-                  <button onClick={() => removeTech(selectedTechIdx)} className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--danger)] transition-colors">
+                  <button onClick={() => { if (window.confirm(`Supprimer "${stack[selectedTechIdx].name}" ?`)) removeTech(selectedTechIdx) }} className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--danger)] transition-colors">
                     ✕ Supprimer
                   </button>
                 </div>
@@ -769,7 +769,7 @@ export default function AdminDashboard() {
                 >
                   <div className="flex items-center justify-between">
                     <h3 className="font-mono text-[var(--cyan)] font-semibold">{infra.services[selectedServiceIdx].name || 'Nouveau service'}</h3>
-                    <button onClick={() => removeService(selectedServiceIdx)} className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--danger)] transition-colors">
+                    <button onClick={() => { if (window.confirm(`Supprimer "${infra.services[selectedServiceIdx].name}" ?`)) removeService(selectedServiceIdx) }} className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--danger)] transition-colors">
                       ✕ Supprimer
                     </button>
                   </div>
