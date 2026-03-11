@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getAdminSession } from '@/lib/auth'
 import { getInfrastructure, saveInfrastructure } from '@/lib/data'
+import { InfrastructureSchema } from '@/lib/schemas'
 
 async function guard() {
   const session = await getAdminSession()
@@ -18,7 +19,12 @@ export async function PUT(req: NextRequest) {
   const denied = await guard()
   if (denied) return denied
 
-  const infra = await req.json()
-  saveInfrastructure(infra)
+  const body = await req.json()
+  const result = InfrastructureSchema.safeParse(body)
+  if (!result.success) {
+    return NextResponse.json({ error: 'Données invalides', details: result.error.flatten() }, { status: 400 })
+  }
+
+  saveInfrastructure(result.data)
   return NextResponse.json({ ok: true })
 }
