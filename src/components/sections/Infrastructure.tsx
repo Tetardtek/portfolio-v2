@@ -67,7 +67,7 @@ export function Infrastructure({ infra, stack, lang, t }: Props) {
             >
               <div className="relative w-8 h-8 shrink-0 mt-0.5">
                 {service.img
-                  ? <Image src={service.img} alt={service.name} fill className="object-contain" />
+                  ? <Image src={service.img} alt={service.name} fill sizes="32px" className="object-contain" />
                   : <span className="w-8 h-8 flex items-center justify-center font-mono text-border text-xs">?</span>
                 }
               </div>

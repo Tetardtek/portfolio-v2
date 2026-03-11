@@ -107,7 +107,7 @@ export function Contact({ t }: Props) {
         <motion.button
           type="submit"
           disabled={status === 'sending' || status === 'success' || status === 'ratelimited'}
-          className="w-full py-3 rounded-btn font-semibold text-base disabled:opacity-60 transition-opacity bg-gradient-vc"
+          className="w-full py-3 rounded-btn font-semibold text-white disabled:opacity-60 transition-opacity bg-gradient-vc"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >

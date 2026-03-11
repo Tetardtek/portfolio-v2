@@ -39,7 +39,8 @@ body {
 }
 
 [data-theme="light"] .glass {
-  background: rgba(237, 231, 246, 0.7);
+  background: rgba(237, 231, 246, 0.9);
+  border-color: rgba(184, 168, 204, 0.9);
 }
 
 /* ── Glow effects ───────────────────────────────────── */

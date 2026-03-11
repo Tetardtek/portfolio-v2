@@ -5,11 +5,12 @@ import { motion } from 'framer-motion'
 import type { Theme } from '@/types'
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'dark'
-    const stored = localStorage.getItem('theme')
-    return stored === 'light' ? 'light' : 'dark'
-  })
+  const [theme, setTheme] = useState<Theme>('dark')
+
+  useEffect(() => {
+    const stored = localStorage.getItem('theme') as Theme | null
+    if (stored === 'light' || stored === 'dark') setTheme(stored)
+  }, [])
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)

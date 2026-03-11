@@ -97,7 +97,7 @@ export function InfraTab({ infra, stack, selectedServiceIdx, descLang, setInfra,
             ))}
           </div>
         </div>
-        <button onClick={onSave} className="self-end px-5 py-2 rounded-btn font-semibold text-sm text-base bg-gradient-vc">
+        <button onClick={onSave} className="self-end px-5 py-2 rounded-btn font-semibold text-sm text-white bg-gradient-vc">
           Sauvegarder
         </button>
       </div>
@@ -109,7 +109,7 @@ export function InfraTab({ infra, stack, selectedServiceIdx, descLang, setInfra,
             <button onClick={addService} className="flex-1 px-4 py-2 rounded-btn font-mono text-sm border border-dashed border-border text-muted hover:border-cyan hover:text-cyan transition-colors">
               + Nouveau service
             </button>
-            <button onClick={onSave} className="px-4 py-2 rounded-btn font-semibold text-sm text-base bg-gradient-vc">
+            <button onClick={onSave} className="px-4 py-2 rounded-btn font-semibold text-sm text-white bg-gradient-vc">
               Sauvegarder
             </button>
           </div>
@@ -164,7 +164,7 @@ export function InfraTab({ infra, stack, selectedServiceIdx, descLang, setInfra,
                 </div>
               </div>
 
-              <button onClick={onSave} className="self-end px-5 py-2 rounded-btn font-semibold text-sm text-base bg-gradient-vc">
+              <button onClick={onSave} className="self-end px-5 py-2 rounded-btn font-semibold text-sm text-white bg-gradient-vc">
                 Sauvegarder
               </button>
             </motion.div>

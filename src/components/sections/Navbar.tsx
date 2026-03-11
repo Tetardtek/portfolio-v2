@@ -23,8 +23,21 @@ export function Navbar({ lang, onLangChange, nav }: Props) {
   const { scrollY } = useScroll()
   const bgOpacity = useTransform(scrollY, [0, 80], [0, 0.92])
   const borderOpacity = useTransform(scrollY, [0, 80], [0, 1])
-  const bg = useMotionTemplate`rgba(38, 21, 55, ${bgOpacity})`
-  const borderColor = useMotionTemplate`rgba(92, 73, 108, ${borderOpacity})`
+
+  const [theme, setTheme] = useState<string>('dark')
+  useEffect(() => {
+    const update = () => setTheme(document.documentElement.getAttribute('data-theme') ?? 'dark')
+    update()
+    const observer = new MutationObserver(update)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
+  }, [])
+
+  const isDark = theme !== 'light'
+  const navBg     = isDark ? '38, 21, 55'   : '245, 240, 250'
+  const navBorder = isDark ? '92, 73, 108'  : '184, 168, 204'
+  const bg          = useMotionTemplate`rgba(${navBg}, ${bgOpacity})`
+  const borderColor = useMotionTemplate`rgba(${navBorder}, ${borderOpacity})`
 
   const [active, setActive] = useState<string | null>(null)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -157,7 +170,7 @@ export function Navbar({ lang, onLangChange, nav }: Props) {
             {/* Backdrop */}
             <motion.div
               className="fixed inset-0 z-40 md:hidden"
-              style={{ background: 'rgba(20, 10, 35, 0.6)', backdropFilter: 'blur(4px)' }}
+              style={{ background: isDark ? 'rgba(20, 10, 35, 0.6)' : 'rgba(200, 190, 220, 0.5)', backdropFilter: 'blur(4px)' }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -167,7 +180,7 @@ export function Navbar({ lang, onLangChange, nav }: Props) {
             {/* Panel */}
             <motion.div
               className="fixed top-16 left-0 right-0 z-40 md:hidden"
-              style={{ background: 'rgba(38, 21, 55, 0.97)', borderBottom: '1px solid rgba(92, 73, 108, 0.8)', backdropFilter: 'blur(20px)' }}
+              style={{ background: isDark ? 'rgba(38, 21, 55, 0.97)' : 'rgba(245, 240, 250, 0.97)', borderBottom: `1px solid rgba(${navBorder}, 0.8)`, backdropFilter: 'blur(20px)' }}
               initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}

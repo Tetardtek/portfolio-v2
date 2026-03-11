@@ -34,9 +34,19 @@
   --bg-high:    #d9cce8;
   --bg-card:    #cfc3e0;
 
+  /* Accents assombris pour le contraste sur fond clair */
+  --pink:       #c4287a;
+  --purple:     #8b30d0;
+  --cyan:       #0a8fb5;
+
   --text:       #1a0e2e;
   --text-muted: #6c5a80;
   --border:     #b8a8cc;
+
+  /* Feedback assombris pour la lisibilité */
+  --success:    #2a8c4a;
+  --warning:    #a06808;
+  --danger:     #c42040;
 }
 
 /* ── Tokens → classes Tailwind ──────────────────────── */

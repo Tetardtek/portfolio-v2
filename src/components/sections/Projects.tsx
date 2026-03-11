@@ -35,6 +35,7 @@ function FeaturedCard({ project, t, lang, stack, large }: { project: Project; t:
           src={project.img}
           alt={project.title}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60" />
@@ -54,7 +55,7 @@ function FeaturedCard({ project, t, lang, stack, large }: { project: Project; t:
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center py-2 rounded-btn font-semibold text-sm text-base hover:opacity-90 transition-opacity bg-gradient-vc"
+            className="flex-1 text-center py-2 rounded-btn font-semibold text-sm text-white hover:opacity-90 transition-opacity bg-gradient-vc"
           >
             {t.demo}
           </a>
@@ -84,7 +85,7 @@ function CompactCard({ project, t, stack, delay }: { project: Project; t: Props[
     >
       {/* Miniature */}
       <div className="relative w-14 h-14 rounded-btn overflow-hidden bg-high shrink-0">
-        <Image src={project.img} alt={project.title} fill className="object-cover" />
+        <Image src={project.img} alt={project.title} fill sizes="56px" className="object-cover" />
       </div>
 
       {/* Infos */}
@@ -98,7 +99,7 @@ function CompactCard({ project, t, stack, delay }: { project: Project; t: Props[
       {/* Links */}
       <div className="flex gap-2 shrink-0">
         <a href={project.link} target="_blank" rel="noopener noreferrer"
-          className="px-3 py-1 rounded-btn text-xs font-mono text-base hover:opacity-90 transition-opacity bg-gradient-vc"
+          className="px-3 py-1 rounded-btn text-xs font-mono text-white hover:opacity-90 transition-opacity bg-gradient-vc"
         >
           {t.demo}
         </a>

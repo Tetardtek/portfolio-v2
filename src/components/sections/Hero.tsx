@@ -17,7 +17,7 @@ function highlightTagline(text: string) {
   const parts = text.split(new RegExp(`(${KEYWORDS.join('|')})`, 'g'))
   return parts.map((part, i) =>
     KEYWORDS.includes(part) ? (
-      <span key={i} style={{ WebkitTextFillColor: '#ffffff', fontWeight: 700, textShadow: '0 0 14px rgba(255,121,198,0.7)' }}>
+      <span key={i} style={{ WebkitTextFillColor: 'var(--text)', fontWeight: 700, textShadow: '0 0 14px rgba(255,121,198,0.7)' }}>
         {part}
       </span>
     ) : part
@@ -100,7 +100,7 @@ export function Hero({ t }: Props) {
         >
           <a
             href="#projects"
-            className="px-6 py-3 rounded-card font-semibold text-base transition-opacity hover:opacity-90 bg-gradient-vc"
+            className="px-6 py-3 rounded-card font-semibold text-white transition-opacity hover:opacity-90 bg-gradient-vc"
           >
             {t.cta_projects}
           </a>
