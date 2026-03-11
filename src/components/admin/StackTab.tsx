@@ -6,7 +6,7 @@ import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-ki
 import type { Project, Technology } from '@/types'
 import { SortableTechItem, SortableCategoryItem } from '@/components/admin/SortableItems'
 
-const input = 'w-full bg-[var(--bg-base)] border border-[var(--border)] rounded-[var(--radius-sm)] px-3 py-2 text-[var(--text)] text-sm font-mono focus:outline-none focus:border-[var(--pink)] transition-colors'
+const input = 'w-full bg-base border border-border rounded-btn px-3 py-2 text-text text-sm font-mono focus:outline-none focus:border-pink transition-colors'
 
 interface Props {
   stack: Technology[]
@@ -86,10 +86,10 @@ export function StackTab({ stack, projects, selectedTechIdx, setStack, setProjec
       {/* Liste sortable — un DndContext par catégorie */}
       <div className="flex flex-col w-72 shrink-0">
         <div className="flex gap-2 mb-2">
-          <button onClick={addTech} className="flex-1 px-4 py-2 rounded-[var(--radius-sm)] font-mono text-sm border border-dashed border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--cyan)] hover:text-[var(--cyan)] transition-colors">
+          <button onClick={addTech} className="flex-1 px-4 py-2 rounded-btn font-mono text-sm border border-dashed border-border text-muted hover:border-cyan hover:text-cyan transition-colors">
             + Nouvelle techno
           </button>
-          <button onClick={handleSave} className="px-4 py-2 rounded-[var(--radius-sm)] font-semibold text-sm text-[var(--bg-base)]" style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))' }}>
+          <button onClick={handleSave} className="px-4 py-2 rounded-btn font-semibold text-sm text-base bg-gradient-vc">
             Sauvegarder
           </button>
         </div>
@@ -97,7 +97,7 @@ export function StackTab({ stack, projects, selectedTechIdx, setStack, setProjec
           const groupItems = stack.map((t, i) => ({ tech: t, realIdx: i })).filter(({ tech }) => tech.category === cat)
           return (
             <div key={cat}>
-              <p className="font-mono text-xs text-[var(--purple)] uppercase tracking-wider px-2 pt-3 pb-1 select-none">{cat}</p>
+              <p className="font-mono text-xs text-purple uppercase tracking-wider px-2 pt-3 pb-1 select-none">{cat}</p>
               <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={onDragEndInCategory}>
                 <SortableContext items={groupItems.map(({ realIdx }) => realIdx.toString())} strategy={verticalListSortingStrategy}>
                   {groupItems.map(({ tech, realIdx }) => (
@@ -112,7 +112,7 @@ export function StackTab({ stack, projects, selectedTechIdx, setStack, setProjec
 
       {/* Panneau ordre des catégories */}
       <div className="flex flex-col w-36 shrink-0">
-        <p className="font-mono text-xs text-[var(--text-muted)] px-1 pb-2 pt-0.5 uppercase tracking-wider">Catégories</p>
+        <p className="font-mono text-xs text-muted px-1 pb-2 pt-0.5 uppercase tracking-wider">Catégories</p>
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={onDragEndCategory}>
           <SortableContext items={categories} strategy={verticalListSortingStrategy}>
             {categories.map((cat) => (
@@ -127,18 +127,18 @@ export function StackTab({ stack, projects, selectedTechIdx, setStack, setProjec
         {selectedTechIdx !== null && stack[selectedTechIdx] && (
           <motion.div className="glass flex-1 p-6 flex flex-col gap-4" initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 12 }} key={selectedTechIdx}>
             <div className="flex items-center justify-between">
-              <h3 className="font-mono text-[var(--cyan)] font-semibold">{stack[selectedTechIdx].name || 'Nouvelle techno'}</h3>
-              <button onClick={() => { if (window.confirm(`Supprimer "${stack[selectedTechIdx].name}" ?`)) removeTech(selectedTechIdx) }} className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--danger)] transition-colors">
+              <h3 className="font-mono text-cyan font-semibold">{stack[selectedTechIdx].name || 'Nouvelle techno'}</h3>
+              <button onClick={() => { if (window.confirm(`Supprimer "${stack[selectedTechIdx].name}" ?`)) removeTech(selectedTechIdx) }} className="font-mono text-xs text-muted hover:text-danger transition-colors">
                 ✕ Supprimer
               </button>
             </div>
 
             <div>
-              <label className="block font-mono text-xs text-[var(--text-muted)] mb-1">Nom</label>
+              <label className="label-xs">Nom</label>
               <input className={input} value={stack[selectedTechIdx].name} onChange={(e) => updateTech(selectedTechIdx, 'name', e.target.value)} />
             </div>
             <div>
-              <label className="block font-mono text-xs text-[var(--text-muted)] mb-1">URL icône</label>
+              <label className="label-xs">URL icône</label>
               <input className={input} placeholder="https://cdn.jsdelivr.net/..." value={stack[selectedTechIdx].img} onChange={(e) => updateTech(selectedTechIdx, 'img', e.target.value)} />
               {stack[selectedTechIdx].img && (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -146,17 +146,17 @@ export function StackTab({ stack, projects, selectedTechIdx, setStack, setProjec
               )}
             </div>
             <div>
-              <label className="block font-mono text-xs text-[var(--text-muted)] mb-2">Catégorie</label>
+              <label className="block font-mono text-xs text-muted mb-2">Catégorie</label>
               <div className="flex flex-wrap gap-2">
                 {Array.from(new Set(stack.map((t) => t.category).filter(Boolean))).map((cat) => (
                   <button key={cat} type="button" onClick={() => updateTech(selectedTechIdx, 'category', cat)}
-                    className={`px-3 py-1 rounded-full font-mono text-xs border transition-colors ${stack[selectedTechIdx].category === cat ? 'border-[var(--cyan)] text-[var(--cyan)] bg-[var(--bg-high)]' : 'border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--purple)] hover:text-[var(--purple)]'}`}
+                    className={`px-3 py-1 rounded-full font-mono text-xs border transition-colors ${stack[selectedTechIdx].category === cat ? 'border-cyan text-cyan bg-high' : 'border-border text-muted hover:border-purple hover:text-purple'}`}
                   >
                     {cat}
                   </button>
                 ))}
                 <input
-                  className="px-3 py-1 rounded-full font-mono text-xs border border-dashed border-[var(--border)] bg-transparent text-[var(--text-muted)] focus:outline-none focus:border-[var(--cyan)] focus:text-[var(--cyan)] w-32 transition-colors"
+                  className="px-3 py-1 rounded-full font-mono text-xs border border-dashed border-border bg-transparent text-muted focus:outline-none focus:border-cyan focus:text-cyan w-32 transition-colors"
                   placeholder="+ nouvelle..."
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' && e.currentTarget.value.trim()) {
@@ -168,7 +168,7 @@ export function StackTab({ stack, projects, selectedTechIdx, setStack, setProjec
               </div>
             </div>
 
-            <button onClick={handleSave} className="self-end px-5 py-2 rounded-[var(--radius-sm)] font-semibold text-sm text-[var(--bg-base)]" style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))' }}>
+            <button onClick={handleSave} className="self-end px-5 py-2 rounded-btn font-semibold text-sm text-base bg-gradient-vc">
               Sauvegarder
             </button>
           </motion.div>

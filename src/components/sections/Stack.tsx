@@ -33,8 +33,8 @@ export function Stack({ stack, techCounts, t }: Props) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <span className="font-mono text-xs text-[var(--cyan)] tracking-widest uppercase">{t.subtitle}</span>
-        <h2 className="mt-2 text-4xl font-bold text-[var(--text)]">{t.title}</h2>
+        <span className="font-mono text-xs text-cyan tracking-widest uppercase">{t.subtitle}</span>
+        <h2 className="mt-2 text-4xl font-bold text-text">{t.title}</h2>
       </motion.div>
 
       <div className="flex flex-col gap-12">
@@ -48,7 +48,7 @@ export function Stack({ stack, techCounts, t }: Props) {
           >
             {/* Catégorie label + ligne décorative */}
             <div className="flex items-center gap-3 mb-6">
-              <span className="font-mono text-xs text-[var(--purple)] uppercase tracking-widest shrink-0">
+              <span className="font-mono text-xs text-purple uppercase tracking-widest shrink-0">
                 {t.categories[cat] ?? cat}
               </span>
               <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, rgba(231,156,254,0.3), transparent)' }} />
@@ -74,11 +74,11 @@ export function Stack({ stack, techCounts, t }: Props) {
                       className="object-contain"
                     />
                   </div>
-                  <span className="font-mono text-xs text-[var(--text-muted)] text-center leading-tight group-hover:text-[var(--text)] transition-colors">
+                  <span className="font-mono text-xs text-muted text-center leading-tight group-hover:text-text transition-colors">
                     {tech.name}
                   </span>
                   {(techCounts[tech.name] ?? 0) > 0 && (
-                    <span className="absolute bottom-1.5 right-2 font-mono text-[10px] text-[var(--border)] group-hover:text-[var(--text-muted)] transition-colors">
+                    <span className="absolute bottom-1.5 right-2 font-mono text-[10px] text-border group-hover:text-muted transition-colors">
                       ×{techCounts[tech.name]}
                     </span>
                   )}

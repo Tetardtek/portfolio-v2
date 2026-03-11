@@ -23,7 +23,7 @@ export function Footer({ t }: Props) {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-[var(--border)] mt-8">
+    <footer className="border-t border-border mt-8">
       <div className="max-w-6xl mx-auto px-6 py-12">
 
         {/* Main row */}
@@ -32,8 +32,7 @@ export function Footer({ t }: Props) {
           {/* Left — brand */}
           <div className="flex flex-col items-center md:items-start gap-3">
             <span
-              className="font-mono text-lg font-bold"
-              style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+              className="font-mono text-lg font-bold text-gradient"
             >
               ~/tetardtek_
             </span>
@@ -44,9 +43,8 @@ export function Footer({ t }: Props) {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs text-[var(--text-muted)] transition-colors"
+                  className="font-mono text-xs text-muted transition-colors"
                   whileHover={{ scale: 1.05 }}
-                  style={{ color: 'var(--text-muted)' }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = s.color)}
                   onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
                 >
@@ -67,7 +65,7 @@ export function Footer({ t }: Props) {
               <a
                 key={link.href}
                 href={link.href}
-                className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--pink)] transition-colors"
+                className="font-mono text-xs text-muted hover:text-pink transition-colors"
               >
                 {link.label}
               </a>
@@ -79,7 +77,7 @@ export function Footer({ t }: Props) {
             href="/assets/cv/cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-xs px-4 py-2 rounded-[var(--radius)] border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--pink)] hover:text-[var(--pink)] transition-colors"
+            className="font-mono text-xs px-4 py-2 rounded-card border border-border text-muted hover:border-pink hover:text-pink transition-colors"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -88,11 +86,11 @@ export function Footer({ t }: Props) {
         </div>
 
         {/* Bottom — copyright */}
-        <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-col md:flex-row justify-between items-center gap-2">
-          <p className="font-mono text-xs text-[var(--text-muted)]">
+        <div className="mt-10 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-2">
+          <p className="font-mono text-xs text-muted">
             © {year} Kevin Turnaco — {t.rights}
           </p>
-          <p className="font-mono text-xs text-[var(--text-muted)]">
+          <p className="font-mono text-xs text-muted">
             {t.made_with}
           </p>
         </div>

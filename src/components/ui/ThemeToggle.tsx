@@ -19,7 +19,7 @@ export function ThemeToggle() {
   return (
     <motion.button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded-[var(--radius-sm)] border border-[var(--border)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--pink)] hover:border-[var(--pink)] transition-colors"
+      className="p-2 rounded-btn border border-border bg-surface text-muted hover:text-pink hover:border-pink transition-colors"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle theme"

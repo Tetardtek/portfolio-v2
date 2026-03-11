@@ -11,13 +11,13 @@ export function SortableProjectItem({ project, isSelected, onClick }: {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: project.id })
   return (
     <div ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.5 : 1 }} className="flex items-center gap-1">
-      <span {...attributes} {...listeners} className="px-1 py-3 cursor-grab active:cursor-grabbing text-[var(--border)] hover:text-[var(--text-muted)] touch-none">⠿</span>
-      <button onClick={onClick} className={`flex-1 glass text-left px-3 py-3 flex items-center gap-3 mb-1 transition-colors ${isSelected ? 'border-[var(--pink)] text-[var(--pink)]' : 'text-[var(--text-muted)] hover:text-[var(--text)]'}`}>
+      <span {...attributes} {...listeners} className="px-1 py-3 cursor-grab active:cursor-grabbing text-border hover:text-muted touch-none">⠿</span>
+      <button onClick={onClick} className={`flex-1 glass text-left px-3 py-3 flex items-center gap-3 mb-1 transition-colors ${isSelected ? 'border-pink text-pink' : 'text-muted hover:text-text'}`}>
         <div className="flex-1 min-w-0">
           <p className="font-mono text-sm truncate">{project.title}</p>
           <div className="flex gap-2 mt-0.5">
-            {project.featured && <span className="text-xs font-mono text-[var(--purple)]">featured</span>}
-            {project.spotlight && <span className="text-xs font-mono text-[var(--cyan)]">★ spotlight</span>}
+            {project.featured && <span className="text-xs font-mono text-purple">featured</span>}
+            {project.spotlight && <span className="text-xs font-mono text-cyan">★ spotlight</span>}
           </div>
         </div>
         <span className="text-xs opacity-40">›</span>
@@ -32,14 +32,14 @@ export function SortableTechItem({ tech, idx, isSelected, onClick }: {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: idx.toString() })
   return (
     <div ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.5 : 1 }} className="flex items-center gap-1 mb-1">
-      <span {...attributes} {...listeners} className="px-1 py-2 cursor-grab active:cursor-grabbing text-[var(--border)] hover:text-[var(--text-muted)] touch-none" title="Glisser pour réordonner">⠿</span>
-      <button onClick={onClick} className={`flex-1 glass text-left px-3 py-2.5 flex items-center gap-3 transition-colors ${isSelected ? 'border-[var(--cyan)] text-[var(--cyan)]' : 'text-[var(--text-muted)] hover:text-[var(--text)]'}`}>
+      <span {...attributes} {...listeners} className="px-1 py-2 cursor-grab active:cursor-grabbing text-border hover:text-muted touch-none" title="Glisser pour réordonner">⠿</span>
+      <button onClick={onClick} className={`flex-1 glass text-left px-3 py-2.5 flex items-center gap-3 transition-colors ${isSelected ? 'border-cyan text-cyan' : 'text-muted hover:text-text'}`}>
         {tech.img && (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={tech.img} alt="" className="w-4 h-4 object-contain shrink-0" />
         )}
         <span className="font-mono text-sm truncate flex-1">{tech.name || 'Sans nom'}</span>
-        {tech.category && <span className="font-mono text-xs text-[var(--border)] shrink-0">{tech.category}</span>}
+        {tech.category && <span className="font-mono text-xs text-border shrink-0">{tech.category}</span>}
       </button>
     </div>
   )
@@ -58,7 +58,7 @@ export function SortableCategoryItem({ cat, onRename }: { cat: string; onRename:
 
   return (
     <div ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.4 : 1 }} className="flex items-center gap-1 mb-1">
-      <span {...attributes} {...listeners} className="px-1 cursor-grab active:cursor-grabbing text-[var(--border)] hover:text-[var(--purple)] touch-none text-sm">⠿</span>
+      <span {...attributes} {...listeners} className="px-1 cursor-grab active:cursor-grabbing text-border hover:text-purple touch-none text-sm">⠿</span>
       {editing ? (
         <input
           autoFocus
@@ -69,10 +69,10 @@ export function SortableCategoryItem({ cat, onRename }: { cat: string; onRename:
             if (e.key === 'Enter') confirm()
             if (e.key === 'Escape') { setValue(cat); setEditing(false) }
           }}
-          className="flex-1 px-3 py-1.5 bg-[var(--bg-base)] border border-[var(--cyan)] rounded-[var(--radius-sm)] font-mono text-xs text-[var(--cyan)] uppercase tracking-wider focus:outline-none"
+          className="flex-1 px-3 py-1.5 bg-base border border-cyan rounded-btn font-mono text-xs text-cyan uppercase tracking-wider focus:outline-none"
         />
       ) : (
-        <span onDoubleClick={() => { setValue(cat); setEditing(true) }} title="Double-clic pour renommer" className="flex-1 px-3 py-1.5 glass font-mono text-xs text-[var(--purple)] uppercase tracking-wider select-none cursor-text">
+        <span onDoubleClick={() => { setValue(cat); setEditing(true) }} title="Double-clic pour renommer" className="flex-1 px-3 py-1.5 glass font-mono text-xs text-purple uppercase tracking-wider select-none cursor-text">
           {cat}
         </span>
       )}
@@ -86,14 +86,14 @@ export function SortableServiceItem({ service, idx, isSelected, onClick }: {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: idx.toString() })
   return (
     <div ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.5 : 1 }} className="flex items-center gap-1 mb-1">
-      <span {...attributes} {...listeners} className="px-1 py-2 cursor-grab active:cursor-grabbing text-[var(--border)] hover:text-[var(--text-muted)] touch-none">⠿</span>
-      <button onClick={onClick} className={`flex-1 glass text-left px-3 py-2.5 flex items-center gap-3 transition-colors ${isSelected ? 'border-[var(--cyan)] text-[var(--cyan)]' : 'text-[var(--text-muted)] hover:text-[var(--text)]'}`}>
+      <span {...attributes} {...listeners} className="px-1 py-2 cursor-grab active:cursor-grabbing text-border hover:text-muted touch-none">⠿</span>
+      <button onClick={onClick} className={`flex-1 glass text-left px-3 py-2.5 flex items-center gap-3 transition-colors ${isSelected ? 'border-cyan text-cyan' : 'text-muted hover:text-text'}`}>
         {service.img && (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={service.img} alt="" className="w-4 h-4 object-contain shrink-0" />
         )}
         <span className="font-mono text-sm truncate flex-1">{service.name || 'Sans nom'}</span>
-        {service.url && <span className="text-xs text-[var(--border)]">↗</span>}
+        {service.url && <span className="text-xs text-border">↗</span>}
       </button>
     </div>
   )

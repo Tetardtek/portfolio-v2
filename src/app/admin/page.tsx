@@ -36,7 +36,7 @@ export default function AdminLogin() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <h1 className="font-mono text-[var(--pink)] text-xl font-bold mb-6 text-center">~/admin</h1>
+        <h1 className="font-mono text-pink text-xl font-bold mb-6 text-center">~/admin</h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
@@ -44,18 +44,18 @@ export default function AdminLogin() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Mot de passe"
-            className="w-full bg-[var(--bg-surface)] border border-[var(--border)] rounded-[var(--radius-sm)] px-4 py-3 text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--pink)] transition-colors font-mono text-sm"
+            className="w-full bg-surface border border-border rounded-btn px-4 py-3 text-text placeholder:text-muted focus:outline-none focus:border-pink transition-colors font-mono text-sm"
             required
           />
 
           {error && (
-            <p className="text-[var(--danger)] font-mono text-xs text-center">{error}</p>
+            <p className="text-danger font-mono text-xs text-center">{error}</p>
           )}
 
           <motion.button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-[var(--radius-sm)] font-semibold text-[var(--bg-base)] disabled:opacity-60"
+            className="w-full py-3 rounded-btn font-semibold text-base disabled:opacity-60"
             style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))' }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

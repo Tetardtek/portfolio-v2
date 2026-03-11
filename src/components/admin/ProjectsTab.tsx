@@ -8,7 +8,7 @@ import { SortableProjectItem } from '@/components/admin/SortableItems'
 
 type DescLang = 'fr' | 'en'
 
-const input = 'w-full bg-[var(--bg-base)] border border-[var(--border)] rounded-[var(--radius-sm)] px-3 py-2 text-[var(--text)] text-sm font-mono focus:outline-none focus:border-[var(--pink)] transition-colors'
+const input = 'w-full bg-base border border-border rounded-btn px-3 py-2 text-text text-sm font-mono focus:outline-none focus:border-pink transition-colors'
 
 interface Props {
   projects: Project[]
@@ -75,10 +75,10 @@ export function ProjectsTab({ projects, stack, selectedIdx, descLang, setProject
       {/* Liste */}
       <div className="flex flex-col w-72 shrink-0">
         <div className="flex gap-2 mb-2">
-          <button onClick={addProject} className="flex-1 px-4 py-2 rounded-[var(--radius-sm)] font-mono text-sm border border-dashed border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--cyan)] hover:text-[var(--cyan)] transition-colors">
+          <button onClick={addProject} className="flex-1 px-4 py-2 rounded-btn font-mono text-sm border border-dashed border-border text-muted hover:border-cyan hover:text-cyan transition-colors">
             + Nouveau projet
           </button>
-          <button onClick={onSave} className="px-4 py-2 rounded-[var(--radius-sm)] font-semibold text-sm text-[var(--bg-base)]" style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))' }}>
+          <button onClick={onSave} className="px-4 py-2 rounded-btn font-semibold text-sm text-base bg-gradient-vc">
             Sauvegarder
           </button>
         </div>
@@ -96,46 +96,46 @@ export function ProjectsTab({ projects, stack, selectedIdx, descLang, setProject
         {selected && selectedIdx !== null && (
           <motion.div className="glass flex-1 p-6 flex flex-col gap-4" initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 12 }} key={selectedIdx}>
             <div className="flex items-center justify-between">
-              <h3 className="font-mono text-[var(--purple)] font-semibold">{selected.title}</h3>
-              <button onClick={() => { if (window.confirm(`Supprimer "${selected.title}" ?`)) removeProject(selectedIdx) }} className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--danger)] transition-colors">
+              <h3 className="font-mono text-purple font-semibold">{selected.title}</h3>
+              <button onClick={() => { if (window.confirm(`Supprimer "${selected.title}" ?`)) removeProject(selectedIdx) }} className="font-mono text-xs text-muted hover:text-danger transition-colors">
                 ✕ Supprimer
               </button>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block font-mono text-xs text-[var(--text-muted)] mb-1">Titre</label>
+                <label className="label-xs">Titre</label>
                 <input className={input} value={selected.title} onChange={(e) => updateProject(selectedIdx, 'title', e.target.value)} />
               </div>
               <div>
-                <label className="block font-mono text-xs text-[var(--text-muted)] mb-1">ID</label>
+                <label className="label-xs">ID</label>
                 <input className={input} value={selected.id} onChange={(e) => updateProject(selectedIdx, 'id', e.target.value)} />
               </div>
               <div>
-                <label className="block font-mono text-xs text-[var(--text-muted)] mb-1">Lien démo</label>
+                <label className="label-xs">Lien démo</label>
                 <input className={input} value={selected.link} onChange={(e) => updateProject(selectedIdx, 'link', e.target.value)} />
               </div>
               <div>
-                <label className="block font-mono text-xs text-[var(--text-muted)] mb-1">GitHub</label>
+                <label className="label-xs">GitHub</label>
                 <input className={input} value={selected.github} onChange={(e) => updateProject(selectedIdx, 'github', e.target.value)} />
               </div>
               <div className="col-span-2">
-                <label className="block font-mono text-xs text-[var(--text-muted)] mb-1">Image (chemin)</label>
+                <label className="label-xs">Image (chemin)</label>
                 <input className={input} value={selected.img} onChange={(e) => updateProject(selectedIdx, 'img', e.target.value)} />
               </div>
               <div className="col-span-2">
-                <label className="block font-mono text-xs text-[var(--text-muted)] mb-2">Technologies</label>
-                <div className="flex flex-col gap-3 p-3 bg-[var(--bg-base)] border border-[var(--border)] rounded-[var(--radius-sm)]">
+                <label className="block font-mono text-xs text-muted mb-2">Technologies</label>
+                <div className="flex flex-col gap-3 p-3 bg-base border border-border rounded-btn">
                   {Array.from(new Set(stack.map((t) => t.category))).map((cat) => (
                     <div key={cat}>
-                      <p className="font-mono text-xs text-[var(--border)] uppercase tracking-wider mb-1.5">{cat}</p>
+                      <p className="font-mono text-xs text-border uppercase tracking-wider mb-1.5">{cat}</p>
                       <div className="flex flex-wrap gap-1.5">
                         {stack.filter((t) => t.category === cat).map((tech) => {
                           const isOn = selected.techno.includes(tech.name)
                           return (
                             <button key={tech.name} type="button"
                               onClick={() => updateProject(selectedIdx, 'techno', isOn ? selected.techno.filter((n) => n !== tech.name) : [...selected.techno, tech.name])}
-                              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-mono text-xs border transition-colors ${isOn ? 'border-[var(--pink)] text-[var(--pink)] bg-[var(--bg-high)]' : 'border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--purple)] hover:text-[var(--purple)]'}`}
+                              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-mono text-xs border transition-colors ${isOn ? 'border-pink text-pink bg-high' : 'border-border text-muted hover:border-purple hover:text-purple'}`}
                             >
                               {tech.img && (
                                 // eslint-disable-next-line @next/next/no-img-element
@@ -155,10 +155,10 @@ export function ProjectsTab({ projects, stack, selectedIdx, descLang, setProject
             {/* Description bilingue */}
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <label className="font-mono text-xs text-[var(--text-muted)]">Description</label>
+                <label className="font-mono text-xs text-muted">Description</label>
                 <div className="flex gap-1 ml-auto">
                   {(['fr', 'en'] as DescLang[]).map((l) => (
-                    <button key={l} onClick={() => setDescLang(l)} className={`px-2 py-0.5 rounded font-mono text-xs transition-colors ${descLang === l ? 'bg-[var(--bg-high)] text-[var(--pink)] border border-[var(--pink)]' : 'text-[var(--text-muted)] border border-[var(--border)] hover:text-[var(--text)]'}`}>
+                    <button key={l} onClick={() => setDescLang(l)} className={`px-2 py-0.5 rounded font-mono text-xs transition-colors ${descLang === l ? 'bg-high text-pink border border-pink' : 'text-muted border border-border hover:text-text'}`}>
                       {l.toUpperCase()}
                     </button>
                   ))}
@@ -169,17 +169,17 @@ export function ProjectsTab({ projects, stack, selectedIdx, descLang, setProject
 
             {/* Toggles */}
             <div className="flex gap-6">
-              <label className="flex items-center gap-2 font-mono text-xs text-[var(--text-muted)] cursor-pointer">
-                <input type="checkbox" checked={selected.featured ?? false} onChange={(e) => updateProject(selectedIdx, 'featured', e.target.checked)} className="accent-[var(--pink)]" />
+              <label className="flex items-center gap-2 font-mono text-xs text-muted cursor-pointer">
+                <input type="checkbox" checked={selected.featured ?? false} onChange={(e) => updateProject(selectedIdx, 'featured', e.target.checked)} className="accent-pink" />
                 Mis en avant (bento)
               </label>
-              <label className={`flex items-center gap-2 font-mono text-xs cursor-pointer ${selected.featured ? 'text-[var(--cyan)]' : 'text-[var(--border)] pointer-events-none'}`}>
-                <input type="radio" name="spotlight" checked={selected.spotlight ?? false} disabled={!selected.featured} onChange={() => setSpotlight(selectedIdx)} className="accent-[var(--cyan)]" />
+              <label className={`flex items-center gap-2 font-mono text-xs cursor-pointer ${selected.featured ? 'text-cyan' : 'text-border pointer-events-none'}`}>
+                <input type="radio" name="spotlight" checked={selected.spotlight ?? false} disabled={!selected.featured} onChange={() => setSpotlight(selectedIdx)} className="accent-cyan" />
                 ★ Spotlight
               </label>
             </div>
 
-            <button onClick={onSave} className="self-end px-5 py-2 rounded-[var(--radius-sm)] font-semibold text-sm text-[var(--bg-base)]" style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))' }}>
+            <button onClick={onSave} className="self-end px-5 py-2 rounded-btn font-semibold text-sm text-base bg-gradient-vc">
               Sauvegarder
             </button>
           </motion.div>

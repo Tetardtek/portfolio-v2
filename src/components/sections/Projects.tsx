@@ -30,20 +30,20 @@ function FeaturedCard({ project, t, lang, stack, large }: { project: Project; t:
       transition={{ duration: 0.35 }}
     >
       {/* Image */}
-      <div className={`relative overflow-hidden bg-[var(--bg-high)] shrink-0 ${large ? 'h-56' : 'h-40'}`}>
+      <div className={`relative overflow-hidden bg-high shrink-0 ${large ? 'h-56' : 'h-40'}`}>
         <Image
           src={project.img}
           alt={project.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-surface)] to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60" />
       </div>
 
       {/* Content */}
       <div className="flex flex-col flex-1 gap-3 p-5">
-        <h3 className="font-mono font-bold text-[var(--pink)] text-lg leading-tight">{project.title}</h3>
-        <p className="text-[var(--text-muted)] text-sm leading-relaxed flex-1">{project.description[lang]}</p>
+        <h3 className="font-mono font-bold text-pink text-lg leading-tight">{project.title}</h3>
+        <p className="text-muted text-sm leading-relaxed flex-1">{project.description[lang]}</p>
 
         {/* Technos */}
         <TechBadgeList techno={project.techno} stack={stack} max={6} />
@@ -54,8 +54,7 @@ function FeaturedCard({ project, t, lang, stack, large }: { project: Project; t:
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center py-2 rounded-[var(--radius-sm)] font-semibold text-sm text-[var(--bg-base)] hover:opacity-90 transition-opacity"
-            style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))' }}
+            className="flex-1 text-center py-2 rounded-btn font-semibold text-sm text-base hover:opacity-90 transition-opacity bg-gradient-vc"
           >
             {t.demo}
           </a>
@@ -63,7 +62,7 @@ function FeaturedCard({ project, t, lang, stack, large }: { project: Project; t:
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center py-2 rounded-[var(--radius-sm)] border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--purple)] hover:text-[var(--purple)] text-sm transition-colors"
+            className="flex-1 text-center py-2 rounded-btn border border-border text-muted hover:border-purple hover:text-purple text-sm transition-colors"
           >
             {t.code}
           </a>
@@ -84,13 +83,13 @@ function CompactCard({ project, t, stack, delay }: { project: Project; t: Props[
       whileHover={{ x: 4 }}
     >
       {/* Miniature */}
-      <div className="relative w-14 h-14 rounded-[var(--radius-sm)] overflow-hidden bg-[var(--bg-high)] shrink-0">
+      <div className="relative w-14 h-14 rounded-btn overflow-hidden bg-high shrink-0">
         <Image src={project.img} alt={project.title} fill className="object-cover" />
       </div>
 
       {/* Infos */}
       <div className="flex-1 min-w-0">
-        <h4 className="font-mono font-semibold text-[var(--text)] text-sm truncate">{project.title}</h4>
+        <h4 className="font-mono font-semibold text-text text-sm truncate">{project.title}</h4>
         <div className="mt-1.5">
           <TechBadgeList techno={project.techno} stack={stack} max={4} size="sm" />
         </div>
@@ -99,13 +98,12 @@ function CompactCard({ project, t, stack, delay }: { project: Project; t: Props[
       {/* Links */}
       <div className="flex gap-2 shrink-0">
         <a href={project.link} target="_blank" rel="noopener noreferrer"
-          className="px-3 py-1 rounded-[var(--radius-sm)] text-xs font-mono text-[var(--bg-base)] hover:opacity-90 transition-opacity"
-          style={{ background: 'linear-gradient(135deg, var(--pink), var(--purple))' }}
+          className="px-3 py-1 rounded-btn text-xs font-mono text-base hover:opacity-90 transition-opacity bg-gradient-vc"
         >
           {t.demo}
         </a>
         <a href={project.github} target="_blank" rel="noopener noreferrer"
-          className="px-3 py-1 rounded-[var(--radius-sm)] border border-[var(--border)] text-xs font-mono text-[var(--text-muted)] hover:border-[var(--purple)] hover:text-[var(--purple)] transition-colors"
+          className="px-3 py-1 rounded-btn border border-border text-xs font-mono text-muted hover:border-purple hover:text-purple transition-colors"
         >
           {t.code}
         </a>
@@ -133,15 +131,15 @@ export function Projects({ projects, lang, stack, t }: Props) {
     <section id="projects" className="py-24 px-6 max-w-6xl mx-auto">
       {/* Header */}
       <motion.div className="mb-12 text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-        <span className="font-mono text-xs text-[var(--cyan)] tracking-widest uppercase">{t.subtitle}</span>
-        <h2 className="mt-2 text-4xl font-bold text-[var(--text)]">{t.title}</h2>
+        <span className="font-mono text-xs text-cyan tracking-widest uppercase">{t.subtitle}</span>
+        <h2 className="mt-2 text-4xl font-bold text-text">{t.title}</h2>
       </motion.div>
 
       {/* Filters */}
       <div className="flex flex-wrap justify-center gap-2 mb-10">
         <button
           onClick={() => { setFilter(null); setShowAll(false) }}
-          className={`px-4 py-1.5 rounded-full font-mono text-sm border transition-colors ${filter === null ? 'border-[var(--pink)] text-[var(--pink)] bg-[var(--bg-surface)]' : 'border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--purple)] hover:text-[var(--purple)]'}`}
+          className={`px-4 py-1.5 rounded-full font-mono text-sm border transition-colors ${filter === null ? 'border-pink text-pink bg-surface' : 'border-border text-muted hover:border-purple hover:text-purple'}`}
         >
           {t.filter_all}
         </button>
@@ -152,7 +150,7 @@ export function Projects({ projects, lang, stack, t }: Props) {
             <button
               key={name}
               onClick={() => { setFilter(name); setShowAll(false) }}
-              className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full font-mono text-sm border transition-colors ${isActive ? 'border-[var(--pink)] text-[var(--pink)] bg-[var(--bg-surface)]' : 'border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--purple)] hover:text-[var(--purple)]'}`}
+              className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full font-mono text-sm border transition-colors ${isActive ? 'border-pink text-pink bg-surface' : 'border-border text-muted hover:border-purple hover:text-purple'}`}
             >
               {tech?.img && (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -183,8 +181,8 @@ export function Projects({ projects, lang, stack, t }: Props) {
         <div className="flex flex-col gap-3">
           {featured.length > 0 && (
             <div className="flex items-center gap-3 mb-2">
-              <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider">Autres projets</span>
-              <div className="flex-1 h-px bg-[var(--border)]" />
+              <span className="font-mono text-xs text-muted uppercase tracking-wider">Autres projets</span>
+              <div className="flex-1 h-px bg-border" />
             </div>
           )}
           {visibleCompact.map((project, i) => (
@@ -194,7 +192,7 @@ export function Projects({ projects, lang, stack, t }: Props) {
           {compact.length > PAGE_SIZE && (
             <button
               onClick={() => setShowAll(!showAll)}
-              className="self-center mt-2 px-6 py-2 font-mono text-sm border border-[var(--border)] text-[var(--text-muted)] rounded-[var(--radius-sm)] hover:border-[var(--pink)] hover:text-[var(--pink)] transition-colors"
+              className="self-center mt-2 px-6 py-2 font-mono text-sm border border-border text-muted rounded-btn hover:border-pink hover:text-pink transition-colors"
             >
               {showAll ? 'Voir moins' : `Voir plus (${compact.length - PAGE_SIZE} restants)`}
             </button>
