@@ -1,6 +1,37 @@
 {
   "projects": [
     {
+      "id": "portfolio-v2",
+      "title": "Portfolio v2",
+      "description": {
+        "fr": "Portfolio développeur full-stack avec panel d'administration complet, support bilingue et déploiement Docker sur VPS.",
+        "en": "Full-stack developer portfolio with complete admin panel, bilingual support and Docker deployment on VPS."
+      },
+      "techno": [
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Docker",
+        "Apache",
+        "SSL Let's Encrypt",
+        "JWT",
+        "Bcrypt",
+        "Claude",
+        "Git",
+        "VSCode",
+        "Linux",
+        "Windows",
+        "GitHub Actions"
+      ],
+      "img": "/assets/img/portfolio.png",
+      "link": "https://portfolio.tetardtek.com",
+      "github": "https://github.com/Tetardtek/portfolio-v2",
+      "featured": true,
+      "spotlight": true
+    },
+    {
       "id": "toutdoux",
       "title": "Toutdoux",
       "description": {
@@ -11,10 +42,13 @@
         "HTML",
         "CSS",
         "JavaScript",
+        "Apache",
+        "SSL Let's Encrypt",
         "Git",
         "VSCode",
         "Linux",
-        "Windows"
+        "Windows",
+        "GitHub Actions"
       ],
       "img": "/assets/img/toutdoux.png",
       "link": "https://jurascript.tetardtek.com/JavaScript/toutdoux.html",
@@ -33,10 +67,13 @@
         "HTML",
         "CSS",
         "JavaScript",
-        "VSCode",
+        "Apache",
+        "SSL Let's Encrypt",
         "Git",
+        "VSCode",
         "Windows",
-        "Linux"
+        "Linux",
+        "GitHub Actions"
       ],
       "img": "/assets/img/jurascript.png",
       "link": "https://jurascript.tetardtek.com/",
@@ -56,12 +93,15 @@
         "SASS",
         "React",
         "JavaScript",
-        "VSCode",
+        "Apache",
+        "SSL Let's Encrypt",
         "Git",
+        "VSCode",
         "Windows",
         "Linux",
         "Postman",
-        "Figma"
+        "Figma",
+        "GitHub Actions"
       ],
       "img": "/assets/img/hogwart.png",
       "link": "https://stupeflix.tetardtek.com/",
@@ -78,13 +118,19 @@
       },
       "techno": [
         "HTML",
+        "CSS",
+        "JavaScript",
         "SASS",
         "React",
         "Node.js",
         "Express",
         "MySQL",
-        "VSCode",
+        "JWT",
+        "Bcrypt",
+        "Apache",
+        "SSL Let's Encrypt",
         "Git",
+        "VSCode",
         "Windows",
         "Linux",
         "Figma"
@@ -93,7 +139,7 @@
       "link": "https://originsdigital.tetardtek.com/",
       "github": "https://github.com/Tetardtek/P3-Originsdigital",
       "featured": true,
-      "spotlight": true
+      "spotlight": false
     },
     {
       "id": "xmass-click",
@@ -107,10 +153,13 @@
         "React",
         "JavaScript",
         "CSS",
+        "Apache",
+        "SSL Let's Encrypt",
         "Git",
         "VSCode",
         "Windows",
-        "Linux"
+        "Linux",
+        "GitHub Actions"
       ],
       "img": "/assets/img/xmass.png",
       "link": "https://xmass.tetardtek.com/",
@@ -131,12 +180,18 @@
         "Express",
         "MySQL",
         "JWT",
+        "Bcrypt",
         "Docker",
+        "Nginx",
+        "SSL Let's Encrypt",
+        "GitHub Actions",
         "Git",
         "VSCode",
-        "Nginx",
         "Linux",
-        "Windows"
+        "Windows",
+        "JavaScript",
+        "HTML",
+        "CSS"
       ],
       "img": "/assets/img/superoauth.png",
       "link": "https://superoauth.tetardtek.com",

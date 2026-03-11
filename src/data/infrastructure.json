@@ -1,15 +1,15 @@
 {
   "description": {
-    "fr": "VPS auto-hébergé sous Linux avec reverse proxy nginx, SSL Let's Encrypt et une dizaine de services en production.",
-    "en": "Self-hosted VPS running Linux with nginx reverse proxy, SSL Let's Encrypt, and a dozen services in production."
+    "fr": "VPS auto-hébergé sous Linux de services en production.",
+    "en": "Self-hosted VPS running Linux with services in production."
   },
   "specs": [
     "Linux",
-    "Nginx",
     "Docker",
     "SSL Let's Encrypt",
     "Node.js",
-    "MySQL"
+    "MySQL",
+    "Apache"
   ],
   "services": [
     {
@@ -19,7 +19,7 @@
         "en": "Real-time monitoring of all services with alerts and uptime history."
       },
       "url": "https://up.tetardtek.com",
-      "img": "/assets/img/uptime-kuma.png"
+      "img": "https://api.iconify.design/simple-icons:uptimekuma.svg"
     },
     {
       "name": "Affine",
@@ -28,7 +28,7 @@
         "en": "All-in-one collaborative workspace (docs, kanban, whiteboard) — self-hosted Notion alternative."
       },
       "url": "https://affine.tetardtek.com",
-      "img": "/assets/img/affine.png"
+      "img": "https://cdn.brandfetch.io/idmp1jw9T-/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1768772750514"
     },
     {
       "name": "Habitica",
@@ -37,7 +37,7 @@
         "en": "Gamified habit and task manager — private instance to track daily progress."
       },
       "url": "https://habitica.tetardtek.com",
-      "img": "/assets/img/habitica.png"
+      "img": "https://cdn.jsdelivr.net/gh/callback-io/allogo@main/public/logos/habitica/icon.svg"
     },
     {
       "name": "ConvertX",
@@ -55,7 +55,7 @@
         "en": "Self-hosted PDF toolkit — merge, split, compress, convert, all locally."
       },
       "url": "https://pdf.tetardtek.com",
-      "img": ""
+      "img": "/assets/img/stirling-pdf.png"
     },
     {
       "name": "Excalidraw",
@@ -64,7 +64,7 @@
         "en": "Self-hosted collaborative drawing and diagramming tool — ideal for architecture diagrams."
       },
       "url": "https://draw.tetardtek.com",
-      "img": ""
+      "img": "/assets/excalidraw.svg"
     },
     {
       "name": "n8n",
@@ -73,7 +73,7 @@
         "en": "Workflow automation — self-hosted Zapier alternative. Connects tools and triggers automated actions."
       },
       "url": "https://n8n.tetardtek.com",
-      "img": "https://cdn.worldvectorlogo.com/logos/n8n-1.svg"
+      "img": "https://unpkg.com/@lobehub/icons-static-svg@1.82.0/icons/n8n-color.svg"
     }
   ]
 }

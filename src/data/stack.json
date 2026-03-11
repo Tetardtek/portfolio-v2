@@ -11,6 +11,16 @@
       "category": "languages"
     },
     {
+      "name": "Python",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      "category": "languages"
+    },
+    {
+      "name": "Lua",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg",
+      "category": "languages"
+    },
+    {
       "name": "HTML",
       "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
       "category": "languages"
@@ -51,18 +61,33 @@
       "category": "backend"
     },
     {
+      "name": "TypeORM",
+      "img": "https://api.iconify.design/logos:typeorm.svg",
+      "category": "backend"
+    },
+    {
       "name": "MySQL",
       "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
       "category": "DB"
     },
     {
-      "name": "Docker",
-      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+      "name": "MariaDB",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg",
+      "category": "DB"
+    },
+    {
+      "name": "Redis",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+      "category": "DB"
+    },
+    {
+      "name": "Apache",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg",
       "category": "devops"
     },
     {
-      "name": "JWT",
-      "img": "https://cdn.worldvectorlogo.com/logos/jwt-3.svg",
+      "name": "Docker",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
       "category": "devops"
     },
     {
@@ -71,13 +96,23 @@
       "category": "devops"
     },
     {
+      "name": "GitHub Actions",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg",
+      "category": "devops"
+    },
+    {
+      "name": "JWT",
+      "img": "https://cdn.worldvectorlogo.com/logos/jwt-3.svg",
+      "category": "devops"
+    },
+    {
       "name": "SSL Let's Encrypt",
-      "img": "https://cdn.worldvectorlogo.com/logos/letsencrypt-1.svg",
+      "img": "https://api.iconify.design/logos:letsencrypt.svg",
       "category": "devops"
     },
     {
       "name": "Bcrypt",
-      "img": "",
+      "img": "https://raw.githubusercontent.com/iffat04/cryptography_generator/refs/heads/main/bcrypt.svg",
       "category": "devops"
     },
     {
@@ -91,6 +126,11 @@
       "category": "tools"
     },
     {
+      "name": "Swagger",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg",
+      "category": "tools"
+    },
+    {
       "name": "Postman",
       "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
       "category": "tools"
@@ -99,6 +139,36 @@
       "name": "Figma",
       "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
       "category": "tools"
+    },
+    {
+      "name": "Claude",
+      "img": "https://unpkg.com/@lobehub/icons-static-svg@1.82.0/icons/claude-color.svg",
+      "category": "AI"
+    },
+    {
+      "name": "GitHub Copilot",
+      "img": "https://unpkg.com/@lobehub/icons-static-svg@1.82.0/icons/copilot-color.svg",
+      "category": "AI"
+    },
+    {
+      "name": "Gemini",
+      "img": "https://unpkg.com/@lobehub/icons-static-svg@1.82.0/icons/gemini-color.svg",
+      "category": "AI"
+    },
+    {
+      "name": "ChatGPT",
+      "img": "https://api.iconify.design/logos:openai-icon.svg",
+      "category": "AI"
+    },
+    {
+      "name": "LM Studio",
+      "img": "https://unpkg.com/@lobehub/icons-static-svg@1.82.0/icons/lmstudio.svg",
+      "category": "AI"
+    },
+    {
+      "name": "Ollama",
+      "img": "https://api.iconify.design/simple-icons:ollama.svg",
+      "category": "AI"
     },
     {
       "name": "Linux",
