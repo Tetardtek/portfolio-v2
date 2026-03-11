@@ -75,26 +75,3 @@
   --radius-btn:  var(--radius-sm);
 }
 
-/* ── Utilitaires réutilisables ──────────────────────── */
-@layer utilities {
-  /* Gradient de fond pink → purple (135deg) */
-  .bg-gradient-vc {
-    background: linear-gradient(135deg, var(--pink), var(--purple));
-  }
-
-  /* Gradient de texte pink → purple */
-  .text-gradient {
-    background: linear-gradient(135deg, var(--pink), var(--purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Gradient de texte cyan → purple */
-  .text-gradient-cyan {
-    background: linear-gradient(135deg, var(--cyan), var(--purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-}

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion, useScroll, useTransform, useMotionTemplate, AnimatePresence } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform, useMotionTemplate, AnimatePresence } from 'framer-motion'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { LangToggle } from '@/components/ui/LangToggle'
 import type { Lang } from '@/types'
@@ -20,7 +20,8 @@ interface Props {
 const SECTIONS = ['projects', 'stack', 'infra', 'contact']
 
 export function Navbar({ lang, onLangChange, nav }: Props) {
-  const { scrollY } = useScroll()
+  const { scrollY, scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 })
   const bgOpacity = useTransform(scrollY, [0, 80], [0, 0.92])
   const borderOpacity = useTransform(scrollY, [0, 80], [0, 1])
 
@@ -90,6 +91,12 @@ export function Navbar({ lang, onLangChange, nav }: Props) {
         className="fixed top-0 left-0 right-0 z-50"
         style={{ backgroundColor: bg, borderBottom: '1px solid', borderColor, backdropFilter: 'blur(14px)' }}
       >
+        {/* Scroll progress bar */}
+        <motion.div
+          className="absolute bottom-0 left-0 h-px w-full origin-left bg-gradient-vc"
+          style={{ scaleX }}
+        />
+
         <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 h-16">
 
           {/* Logo */}

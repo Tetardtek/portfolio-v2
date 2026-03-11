@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import type { Project, Technology, Lang } from '@/types'
 import { TechBadgeList } from '@/components/ui/TechBadge'
@@ -20,6 +20,15 @@ interface Props {
 }
 
 function FeaturedCard({ project, t, lang, stack, large }: { project: Project; t: Props['t']; lang: Lang; stack: Technology[]; large?: boolean }) {
+  const [copied, setCopied] = useState(false)
+
+  function handleCopy(e: React.MouseEvent) {
+    e.preventDefault()
+    navigator.clipboard.writeText(project.link)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
   return (
     <motion.article
       className={`glass overflow-hidden group relative flex flex-col ${large ? 'row-span-2' : ''}`}
@@ -67,48 +76,100 @@ function FeaturedCard({ project, t, lang, stack, large }: { project: Project; t:
           >
             {t.code}
           </a>
+          <motion.button
+            onClick={handleCopy}
+            className="px-3 py-2 rounded-btn border border-border text-muted hover:border-cyan hover:text-cyan text-sm transition-colors shrink-0"
+            whileTap={{ scale: 0.9 }}
+            aria-label="Copier le lien"
+            title="Copier le lien"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={copied ? 'check' : 'copy'}
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.7 }}
+                transition={{ duration: 0.15 }}
+                className="block"
+              >
+                {copied ? '✓' : '⎘'}
+              </motion.span>
+            </AnimatePresence>
+          </motion.button>
         </div>
       </div>
     </motion.article>
   )
 }
 
-function CompactCard({ project, t, stack, delay }: { project: Project; t: Props['t']; stack: Technology[]; delay: number }) {
+function CompactCard({ project, t, lang, stack, delay }: { project: Project; t: Props['t']; lang: Lang; stack: Technology[]; delay: number }) {
+  const [open, setOpen] = useState(false)
+
   return (
     <motion.article
-      className="glass flex items-center gap-4 p-4 group"
+      className="glass flex flex-col overflow-hidden cursor-pointer"
       initial={{ opacity: 0, x: -12 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ delay, duration: 0.3 }}
-      whileHover={{ x: 4 }}
+      onClick={() => setOpen((o) => !o)}
     >
-      {/* Miniature */}
-      <div className="relative w-14 h-14 rounded-btn overflow-hidden bg-high shrink-0">
-        <Image src={project.img} alt={project.title} fill sizes="56px" className="object-cover" />
-      </div>
+      {/* Main row */}
+      <div className="flex items-center gap-4 p-4 group">
+        {/* Miniature */}
+        <div className="relative w-14 h-14 rounded-btn overflow-hidden bg-high shrink-0">
+          <Image src={project.img} alt={project.title} fill sizes="56px" className="object-cover" />
+        </div>
 
-      {/* Infos */}
-      <div className="flex-1 min-w-0">
-        <h4 className="font-mono font-semibold text-text text-sm truncate">{project.title}</h4>
-        <div className="mt-1.5">
-          <TechBadgeList techno={project.techno} stack={stack} max={4} size="sm" />
+        {/* Infos */}
+        <div className="flex-1 min-w-0">
+          <h4 className="font-mono font-semibold text-text text-sm truncate">{project.title}</h4>
+          <div className="mt-1.5">
+            <TechBadgeList techno={project.techno} stack={stack} max={4} size="sm" />
+          </div>
+        </div>
+
+        {/* Links + chevron */}
+        <div className="flex items-center gap-2 shrink-0">
+          <a href={project.link} target="_blank" rel="noopener noreferrer"
+            className="px-3 py-1 rounded-btn text-xs font-mono text-white hover:opacity-90 transition-opacity bg-gradient-vc"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {t.demo}
+          </a>
+          <a href={project.github} target="_blank" rel="noopener noreferrer"
+            className="px-3 py-1 rounded-btn border border-border text-xs font-mono text-muted hover:border-purple hover:text-purple transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {t.code}
+          </a>
+          <motion.span
+            className="font-mono text-muted text-xs ml-1"
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            ▾
+          </motion.span>
         </div>
       </div>
 
-      {/* Links */}
-      <div className="flex gap-2 shrink-0">
-        <a href={project.link} target="_blank" rel="noopener noreferrer"
-          className="px-3 py-1 rounded-btn text-xs font-mono text-white hover:opacity-90 transition-opacity bg-gradient-vc"
-        >
-          {t.demo}
-        </a>
-        <a href={project.github} target="_blank" rel="noopener noreferrer"
-          className="px-3 py-1 rounded-btn border border-border text-xs font-mono text-muted hover:border-purple hover:text-purple transition-colors"
-        >
-          {t.code}
-        </a>
-      </div>
+      {/* Description expandable */}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="desc"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <p className="px-4 pb-4 text-muted text-sm leading-relaxed border-t border-border pt-3">
+              {project.description[lang]}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.article>
   )
 }
@@ -118,6 +179,10 @@ const PAGE_SIZE = 6
 export function Projects({ projects, lang, stack, t }: Props) {
   const stackNames = new Set(stack.map((s) => s.name))
   const allTechnos = Array.from(new Set(projects.flatMap((p) => p.techno).filter((n) => stackNames.has(n)))).sort()
+  const techCounts = projects.reduce<Record<string, number>>(
+    (acc, p) => { p.techno.forEach((n) => { acc[n] = (acc[n] ?? 0) + 1 }); return acc },
+    {}
+  )
   const [filter, setFilter] = useState<string | null>(null)
   const [showAll, setShowAll] = useState(false)
 
@@ -158,6 +223,7 @@ export function Projects({ projects, lang, stack, t }: Props) {
                 <img src={tech.img} alt="" className="w-3.5 h-3.5 object-contain" />
               )}
               {name}
+              <span className="opacity-50 text-xs">({techCounts[name] ?? 0})</span>
             </button>
           )
         })}
@@ -187,7 +253,7 @@ export function Projects({ projects, lang, stack, t }: Props) {
             </div>
           )}
           {visibleCompact.map((project, i) => (
-            <CompactCard key={project.id} project={project} t={t} stack={stack} delay={i * 0.06} />
+            <CompactCard key={project.id} project={project} t={t} lang={lang} stack={stack} delay={i * 0.06} />
           ))}
 
           {compact.length > PAGE_SIZE && (

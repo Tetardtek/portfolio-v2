@@ -60,6 +60,27 @@ body {
   }
 }
 
+/* ── Utilitaires gradient (ici pour compatibilité dev Turbopack) ─── */
+@layer utilities {
+  .bg-gradient-vc {
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
 /* ── Selection ──────────────────────────────────────── */
 ::selection {
   background: var(--pink);
