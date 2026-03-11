@@ -16,7 +16,7 @@ export async function sendContactEmail(params: {
   message: string
 }): Promise<void> {
   await transporter.sendMail({
-    from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
+    from: `"Portfolio Contact" <${process.env.SMTP_FROM}>`,
     to: process.env.CONTACT_EMAIL,
     replyTo: params.email,
     subject: `[Portfolio] Message de ${params.name}`,
