@@ -3,7 +3,7 @@ import { verifyToken } from '@/lib/auth'
 
 const PROTECTED = ['/admin/dashboard', '/api/admin']
 
-export function proxy(req: NextRequest) {
+export function middleware(req: NextRequest) {
   const isProtected = PROTECTED.some((p) => req.nextUrl.pathname.startsWith(p))
   if (!isProtected) return NextResponse.next()
 
